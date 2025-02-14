@@ -1,7 +1,6 @@
 import { ConfigProvider, Layout, Segmented, Space, Tag, theme } from 'antd';
 import { FC, PropsWithChildren, ReactNode, useState } from 'react';
 import wukong from './assets/game.webp';
-import minecraft from './assets/game.jpg';
 import './App.css';
 import { AppstoreOutlined, BarsOutlined } from '@ant-design/icons';
 
@@ -40,7 +39,7 @@ const App = () => {
           </Tags>
         </div>
         <div className="cover">
-          <img alt="game" src={minecraft} />
+          <img alt="game"   src="https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/key-art/Homepage_Discover-our-games_MC-Vanilla-KeyArt_864x864.jpg" />
           <Tags
             style={{
               position: 'absolute',
