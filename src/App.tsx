@@ -1,12 +1,12 @@
-import { ConfigProvider, Flex, Layout, Segmented, Tag, theme } from 'antd';
-import { FC, PropsWithChildren, ReactNode, use, useState } from 'react';
+import { ConfigProvider, Layout, Segmented, Space, Tag, theme } from 'antd';
+import { FC, PropsWithChildren, ReactNode, useState } from 'react';
 import wukong from './assets/game.webp';
 import minecraft from './assets/game.jpg';
 import './App.css';
 import { AppstoreOutlined, BarsOutlined } from '@ant-design/icons';
 
 const App = () => {
-  const [TagLayout, setTagLayout] = useState<MyTagProps['TagLayout']>('Horizontal');
+  const [TagLayout, setTagLayout] = useState<MyTagProps['TagLayout']>('horizontal');
   return (
     <ConfigProvider
       theme={{
@@ -20,8 +20,8 @@ const App = () => {
           value={TagLayout}
           onChange={setTagLayout}
           options={[
-            { value: 'List', icon: <AppstoreOutlined /> },
-            { value: 'Horizontal', icon: <BarsOutlined /> },
+            { value: 'vertical', icon: <AppstoreOutlined /> },
+            { value: 'horizontal', icon: <BarsOutlined /> },
           ]}
         />
         <div className="cover">
@@ -67,14 +67,15 @@ const App = () => {
 // 继承 antd 的 TagProps，并支持 children
 interface MyTagProps extends PropsWithChildren, React.ComponentProps<typeof Tag> {
   subtitle?: ReactNode
-  TagLayout?: 'List' | 'Horizontal'
+  TagLayout?: 'vertical' | 'horizontal'
 }
 
 const Tags: FC<MyTagProps> = (props) => (
-  <Flex
+  <Space
     className="tags"
     style={props.style}
-    vertical={props.TagLayout === 'List'}
+    direction = {props.TagLayout}
+    size={0}
   >
     <Tag
       className='tagt'
@@ -96,7 +97,7 @@ const Tags: FC<MyTagProps> = (props) => (
         {props.subtitle}
       </span>
     }
-  </Flex >
+  </Space >
 );
 
 export default App;
