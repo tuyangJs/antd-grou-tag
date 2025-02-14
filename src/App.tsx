@@ -28,41 +28,44 @@ const App = () => {
           <img alt="game" src={wukong} />
           <Tags
             style={{
-              position: 'absolute',
+              position: "absolute",
               bottom: 15,
               right: 15,
             }}
             TagLayout={TagLayout}
             bordered={false}
             color="orange"
-            subtitle="送豪礼">
+            subtitle="送豪礼"
+          >
             预购
           </Tags>
         </div>
         <div className="cover">
-          <img alt="game" src={minecraft} />
+          <img
+            alt="game"
+            src="https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/key-art/Homepage_Discover-our-games_MC-Vanilla-KeyArt_864x864.jpg"
+          />
           <Tags
             style={{
-              position: 'absolute',
+              position: "absolute",
               bottom: 10,
               right: 10,
             }}
             TagLayout={TagLayout}
             bordered={false}
             color="green"
-            subtitle="¥288">
+            subtitle="¥288"
+          >
             预购
           </Tags>
         </div>
-        <Tags
-          bordered={false}
-          color="green">
+        <Tags bordered={false} color="green">
           预购
         </Tags>
       </Layout>
     </ConfigProvider>
   );
-}
+};
 
 // 继承 antd 的 TagProps，并支持 children
 interface MyTagProps extends PropsWithChildren, React.ComponentProps<typeof Tag> {
@@ -78,22 +81,24 @@ const Tags: FC<MyTagProps> = (props) => (
     size={0}
   >
     <Tag
-      className='tagt'
+      className="tagt"
       {...props}
       style={{
         marginInlineEnd: 0,
-        alignItems: 'center',
-        textAlign: 'center',
-        padding:4
+        alignItems: "center",
+        textAlign: "center",
+        padding: 4,
       }} //不再继承style
-    >{props.children}</Tag>
-    {props.subtitle
-      &&
+    >
+      {props.children}
+    </Tag>
+    {props.subtitle && (
       <span
         style={{
-          color: 'white',
-          padding:4,
-        }}>
+          color: "white",
+          padding: 4,
+        }}
+      >
         {props.subtitle}
       </span>
     }
